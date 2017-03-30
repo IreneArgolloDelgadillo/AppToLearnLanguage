@@ -1,0 +1,28 @@
+﻿@model EasyLearning.Models.ViewModel.SimpleSelectionModel
+
+<div class="row">
+    <div class="col offset-m2 offset-l2 s10 m8 l8 center-align"  id="exerciseCard">
+        <div class="card hoverable">
+            <div class="card-title center-align">@Html.DisplayFor(m => m.Header.Question)</div>
+            <div class="container">
+                <div class="card-image">
+                    <img src=@Html.DisplayFor(m => m.Header.PathImage)>
+                </div>
+            </div>
+
+            <div class="card-content center-align">
+                <p>@Html.DisplayFor(m => m.Header.Instruction)</p>
+            </div>
+
+            <div class="card-action center-align">
+                @foreach (var option in Model.Options)
+            {
+                    <button class="waves-effect waves-light btn" id="optionsButton" onclick="simpleSelectionEvaluator.evaluateChosenOption(this)">@option.AnswerWord</button><p />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var simpleSelectionId = @Model.ExerciseId;
+</script>

@@ -1,0 +1,54 @@
+﻿@using EasyLearning.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Title = "Log in";
+}
+@Html.Hidden("RedirectTo", Url.Action("Index", "Home"));
+<div class="row horizontal center-align">
+    <div class="col offset-m3 offset-l4 m6 l4 card-panel hoverable">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row offset-s1">
+                    <div class="input-field col s12 center">
+                        <img src="~/Logo/logo2.png" alt="" class="responsive-img">
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <label>Email</label>
+                    <input id="Email" class="form-control" type="text">
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 labelfont errorMsg" id="emailError">Enter the email.</label>
+                </div>
+                <div class="input-field col s12">
+                    <label>Password</label>
+                    <input id="Password" class="form-control" type="password" required />
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 labelfont errorMsg" id="passwordError">Enter the password.</label>
+                </div>
+                <div class="row">
+                    <label id="logError" class="red-text accent-3" for="loginError" style="vertical-align: middle"></label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button id="loginButton" class="btn waves-effect waves-light col s12" onclick="account.login()" >Log In</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button class="btn waves-effect waves-light col s12" onclick="location.href='@Url.Action("Register", "Account")';return false;">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Project/LoginValidator.js"></script>
+    <script src="~/Scripts/Project/AccountController.js"></script>
+
+}

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+    <title>@ViewBag.Title - Easy Learning</title>
+    @Styles.Render("~/Content/materialize")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="teal">
+
+    <div class="row" id="bodyContainer">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("~/bundles/materialize")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

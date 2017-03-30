@@ -1,0 +1,28 @@
+﻿@model EasyLearning.Models.ViewModel.GrammarTipModel
+
+@{
+    ViewBag.Title = "GrammarTip";
+}
+
+
+
+<div>
+    <label class="left-align"><i class="material-icons">attachment</i><b>Lee el siguiente Tip de Gramática</b></label><br />
+    <div class="card teal">
+        <div class="card-content white-text">
+            @Html.DisplayFor(model => model.Tip)
+        </div>
+        <div class="container">
+            <ul class="collapsible popout" data-collapsible="expandable">
+                @foreach (var example in Model.Examples)
+                {
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">send</i>@example.ExampleInLanguageToLearn</div>
+                        <div class="collapsible-body"><p>@example.ExampleInNativeLanguage</p></div>
+                    </li>
+                }
+            </ul>
+            <br />
+        </div>
+    </div>
+</div>

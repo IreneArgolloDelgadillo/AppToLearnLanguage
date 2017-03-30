@@ -1,0 +1,25 @@
+﻿@model EasyLearning.Models.ViewModel.TrueFalseModel
+
+<div class="row ">
+    <div class="col offset-m2 offset-l2 s10 m8 l8 center-align" id="exerciseCard">
+        <div class="card hoverable">
+            <div class="card-title center-align" id="title">@Html.DisplayFor(m => m.Header.Question) </div>
+
+            <div class="container">
+                <div class="card-image center-align">
+                    <img src=@Html.DisplayFor(g => g.Header.PathImage) />
+                </div>
+            </div>
+
+            <div class="card-title center-align">@Html.DisplayFor(q => q.Affirmation)</div>
+
+            <div class="card-action center-align">
+                <button class="waves-effect waves-light btn " id="ButtonTrue" onclick="selectedCorrectWrongAnswer.selectTrue()">True</button>
+                <button class="waves-effect waves-light btn " id="ButtonFalse" onclick="selectedCorrectWrongAnswer.selectFalse()">False</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var exerciseId = @Model.ExerciseId;
+</script>

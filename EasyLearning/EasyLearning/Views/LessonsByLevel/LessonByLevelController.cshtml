@@ -1,0 +1,23 @@
+﻿@model EasyLearning.Models.ViewModel.LevelModel
+
+<div class="row">
+    <div class="col offset-m2 offset-l2 s12 m8 l8 card">
+        <div class="card-title">
+            @Model.Title
+        </div>
+        <div class="card-stacked">
+            <div class="card-action center-align">
+                @foreach (var lesson in Model.Lessons)
+                {
+                    <a class="btn-floating lighten-2 " onclick="ClientExerciseAndTip.nextPartialView(@lesson.LessonId)">
+                        <i class="material-icons">play_circle_outline</i>
+                    </a>
+                    <p>@lesson.Title</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/Project/ClientLesson.js"></script>
+}

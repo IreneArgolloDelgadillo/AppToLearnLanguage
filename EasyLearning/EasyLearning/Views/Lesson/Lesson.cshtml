@@ -1,0 +1,41 @@
+﻿@model EasyLearning.Models.ViewModel.LessonModel
+
+<div class="row">
+    <div class="col offset-m2 offset-l2 s12 m8 l8 card">
+        <div class="card-title">
+            @Model.Title
+        </div>
+        <div class="card-title" id="progressHidden" hidden>
+            <div class="progress">
+                <div class="determinate" id="progressBar"></div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="valign-wrapper">
+                <div class="valign" id="exercises">
+
+                </div>
+                <div class="right-align" id="nextButton" hidden>
+                    <div class="valign">
+                        <a class="btn-floating teal lighten-2" onclick="ClientExerciseAndTip.nextPartialView(1)">
+                            <i class="material-icons">skip_next</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Project/StartPartialView.js"></script>
+    <script src="~/Scripts/Project/responsivevoice.js"></script>
+    <script src="~/Scripts/Project/VocabularyTips.js"></script>
+    <script src="~/Scripts/Project/ClientExerciseAndTip.js"></script>
+    <script src="~/Scripts/Project/ParametersCreated.js"></script>
+    <script src="~/Scripts/Project/ProgressBarCalculator.js"></script>
+    <link href="~/Styles/SimpleSelectionStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/Project/SimpleSelectionEvaluator.js"></script>
+    <script src="~/Scripts/Project/SimpleSelectionController.js"></script>
+    <script src="~/Scripts/Project/SelectedCorrectWrongAnswer.js"></script>
+}

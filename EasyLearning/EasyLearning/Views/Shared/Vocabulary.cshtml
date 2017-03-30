@@ -1,0 +1,25 @@
+﻿@model EasyLearning.Models.ViewModel.VocabularyTipModel
+
+    <div class="row ">
+        <div class="col offset-m2 offset-l2 s10 m8 l8 center-align" id="exerciseCard">
+            <div class="card hoverable">
+                <div class="card-image">
+                    <img src=@Html.DisplayFor(model => model.PathImage)>
+                </div>
+
+                <div class="card-content center-align">
+                    <h4 id="word">@Html.DisplayFor(model => model.Example.ExampleOnLanguageToLearn)</h4>
+                    <h6 id="sentence">@Html.DisplayFor(model => model.Example.ExampleOnNativeLanguage)</h6>
+                </div>
+
+                <div class="card-action">
+                    <button class="btn-floating btn-large waves-effect waves-light" onclick="vocabularyController.WordReproduction();">
+                        <i class="material-icons">play_arrow</i>
+                    </button>
+                    <button class="btn-floating waves-effect waves-light" onclick="vocabularyController.WordSlowPlayback();">
+                        <img class="center" src="~/Images/turtle-512.png" width='100%' height="100%" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

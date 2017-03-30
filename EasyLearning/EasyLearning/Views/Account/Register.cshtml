@@ -1,0 +1,81 @@
+﻿@using EasyLearning.ClientRest
+@model EasyLearning.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Title = "Register";
+    IList<SelectListItem> nativeLanguages = ViewBag.NativeLanguages;
+}
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col offset-m3 offset-l4 m6 l4 card-panel hoverable">
+            <form class="offset-s1 col s11">
+                <div class="row offset-s1">
+                    <div class="input-field col s12 center">
+                        <h4>Registrate</h4>
+                        <p class="center">Únase a nuestra comunidad ahora!</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row offset-s1">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <label>Nombre</label>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row offset-s1">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-offset-2 control-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row offset-s1">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">language</i>
+                            @Html.DropDownListFor(x => x.Nativelanguage, nativeLanguages, "Escoge el idioma Nativo", null)
+                            @Html.ValidationMessageFor(x => x.Learnlanguage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row offset-s1">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">language</i>
+                            @Html.DropDownListFor(x => x.Learnlanguage, new Client().GetListLanguages(), "Escoge el idioma aprender", null)
+                            @Html.ValidationMessageFor(x => x.Learnlanguage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row offset-s1">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock_outline</i>
+                            <label>Contraseña</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row offset-s1">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock_outline</i>
+                            <label>Confirme su contraseña</label>
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-action">
+                    <div class="input-field col s12">
+                        <input type="submit" class="btn waves-effect waves-light col s12" value="Registrate Ahora" />
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Project/Dropdownlis.js"></script>
+}

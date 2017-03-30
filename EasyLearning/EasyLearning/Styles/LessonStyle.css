@@ -1,0 +1,39 @@
+﻿#optionsButton {
+    border-radius: 5px;
+    width: 80%;
+    margin: 5px;
+    font-size: 100%
+}
+
+.btn {
+    text-transform: none;
+}
+
+#exercises {
+    width: 80%;
+    height: 80%;
+}
+
+#exerciseCard {
+    width: 70%;
+}
+
+#startIconButton {
+    color: #00bfa5;
+}
+
+#lessons li div i{
+    color: #00bfa5;
+}
+
+.secondary-content {
+    float: none;
+}
+
+#lessons button {
+    border-radius: 5px;
+    background-color: #00bfa5;
+    color: #fff;
+    font-size: 16px;
+    width: 90%;
+}

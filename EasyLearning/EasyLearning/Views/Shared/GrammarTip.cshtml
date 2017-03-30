@@ -1,0 +1,31 @@
+﻿@model EasyLearning.Models.ViewModel.GrammarTipModel
+
+<div class="row">
+    <div class="col offset-m2 offset-l2 s10 m8 l8 center-align" id="exerciseCard">
+        <div class="card hoverable">
+            <div class="card-content">
+
+                <div class="card-content"></div>
+                <p class="left-align  grey-text"><i class="material-icons">attachment</i><b>Lee el siguiente Tip de Gramática</b></p><br />
+
+                <blockquote>
+                    @Html.DisplayFor(model => model.Tip)
+                </blockquote>
+            </div>
+
+            <div class="container">
+                <ul class="collapsible popout" data-collapsible="accordion">
+                    @foreach (var example in Model.Examples)
+                    {
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons icon-teal">send</i>@example.ExampleOnLanguageToLearn</div>
+                            <div class="collapsible-body"><p>@example.ExampleOnNativeLanguage</p></div>
+                        </li>
+                    }
+                </ul>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Project/EnableCollapsible.js"></script>

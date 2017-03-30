@@ -1,0 +1,45 @@
+﻿@model EasyLearning.Models.ViewModel.UserLanguagesModel
+
+@{
+    ViewBag.Title = "Cambiar Idioma";
+    IList<SelectListItem> languages = ViewBag.Languages;
+}
+<div class="card-panel">
+    <h1 class="teal-text center-align">Idiomas</h1>
+
+    <blockquote><b>Hablo:</b> @Model.NativeLanguage</blockquote>
+    @using (Html.BeginForm("Index", "UserLanguages", FormMethod.Post,
+                                                                new
+                                                                {
+                                                                    @class = "form-horizontal",
+                                                                    role = "form"
+                                                                }
+                                                            )
+                                                    )
+    {
+        <form method="post">
+            <div class="row">
+                <div class="col s12 m6 l3">
+                    <blockquote><b>Estoy aprendiendo:</b></blockquote>
+                </div>
+                <div class="col s12 m6 l3">
+                    @Html.DropDownList("LanguageTolearnId", languages, Model.LanguageTolearn, new
+               {
+                   @id = "Languages",
+                   @class = "form-control",
+                   @onchange = "dropDownEnable.showSelected()"
+               })
+                </div>
+                <div id="userIdInput"><input type="hidden" name="User" id="User" /></div>
+                <div class="col s12 m6 l3" id="PutInput"></div>
+                <div class="col s12 m6 l3" id="PutCancel">
+                    <a id="CancelOption" style="display: none" class="waves-effect waves-light btn" href=@Url.Action("Index", "Home")>Cancelar</a>
+                </div>
+            </div>
+        </form>
+    }
+</div>
+@section scripts {
+    <script src="~/Scripts/Project/Dropdownlis.js"></script>
+    <script src="~/Scripts/Project/EnableChangeButton.js"></script>
+}
